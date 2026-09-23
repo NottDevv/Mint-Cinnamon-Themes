@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mint Cinnamon Themes - Modern Theme Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #10b981;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .terminal {
+            background: #090d16;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #38bdf8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow-x: auto;
+        }
+
+        .terminal code {
+            white-space: nowrap;
+        }
+
+        .btn-copy {
+            background: var(--accent);
+            color: #000;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+            margin-left: 10px;
+        }
+
+        .btn-copy:hover {
+            opacity: 0.9;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .feature-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .feature-box i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        /* RTL Persian Section */
+        .fa-section {
+            direction: rtl;
+            text-align: right;
+            border-right: 4px solid var(--accent);
+        }
+
+        .fa-section h2 {
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+        }
+
+        .fa-section ul {
+            margin-right: 20px;
+            margin-top: 10px;
+        }
+
+        .fa-section li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Mint Cinnamon Themes</h1>
+        <p>Interactive & Modular Theme Manager for Linux Mint (Cinnamon)</p>
+        <div class="badges">
+            <img src="https://img.shields.io/badge/Linux%20Mint-Cinnamon-87CF3E?style=for-the-badge&logo=linuxmint&logoColor=white" alt="Linux Mint">
+            <img src="https://img.shields.io/badge/Bash-Script-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Bash">
+            <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License">
+        </div>
+    </header>
+
+    <!-- Quick Install Section -->
+    <div class="card">
+        <h2><i class="fa-solid fa-terminal"></i> Quick One-Line Install</h2>
+        <p style="color: var(--text-muted); margin-bottom: 15px;">Run this command in your Linux Mint terminal to launch the interactive theme manager:</p>
+        <div class="terminal">
+            <code id="cmd">curl -fsSL https://nottdevv.github.io/Mint-Cinnamon-Themes/install.sh | bash</code>
+            <button class="btn-copy" onclick="copyCmd()"><i class="fa-regular fa-copy"></i> Copy</button>
+        </div>
+    </div>
+
+    <!-- Supported Themes -->
+    <div class="card">
+        <h2><i class="fa-solid fa-palette"></i> Supported Themes</h2>
+        <div class="grid">
+            <div class="feature-box">
+                <i class="fa-brands fa-windows"></i>
+                <h3>Windows 11</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Light & Dark GTK themes + Fluent icon pack.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-brands fa-apple"></i>
+                <h3>macOS (WhiteSur)</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Authentic Apple UI elements and WhiteSur icons.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-brands fa-chrome"></i>
+                <h3>ChromeOS</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Clean Material Design UI + Ozone icon set.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Persian Documentation -->
+    <div class="card fa-section">
+        <h2>🇮🇷 راهنمای فارسی و نحوه استفاده</h2>
+        <p>این پروژه یک ابزار تعاملی برای نصب، مدیریت و بازگردانی تم‌های محبوب روی محیط دسکتاپ <b>Linux Mint Cinnamon</b> است.</p>
+        
+        <h3 style="margin-top: 15px; font-size: 1.1rem; color: var(--accent);">ویژگی‌های اصلی:</h3>
+        <ul>
+            <li>نصب مجزا یا هم‌زمان تم‌ها و پکیج آیکون‌ها</li>
+            <li>پشتیبانی کامل از هر دو حالت روشن (Light) و تاریک (Dark)</li>
+            <li>امکان تهیه پشتیبان (Backup) و بازگردانی (Restore) تنظیمات فعلی</li>
+            <li>حذف تم‌های نصب‌شده بدون آسیب به فایل‌های سیستم</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>Project maintained by <a href="https://github.com/NottDevv" target="_blank">NottDevv</a> on GitHub.</p>
+    </footer>
+</div>
+
+<script>
+function copyCmd() {
+    const cmdText = document.getElementById('cmd').innerText;
+    navigator.clipboard.writeText(cmdText);
+    const btn = document.querySelector('.btn-copy');
+    btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+    setTimeout(() => {
+        btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
+    }, 2000);
+}
+</script>
+
+</body>
+</html>
