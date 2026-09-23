@@ -1,14 +1,19 @@
 # Mint Cinnamon Themes
 
 <p align="center">
-  **Modern desktop themes for Linux Mint Cinnamon**<br>
-  Windows 11 • macOS • ChromeOS
+
+**Modern desktop themes for Linux Mint Cinnamon**
+
+Windows 11 • macOS • ChromeOS
+
 </p>
 
 <p align="center">
-  [![Linux Mint](https://img.shields.io/badge/Linux%20Mint-Cinnamon-87CF3E?style=for-the-badge&logo=linuxmint&logoColor=white)](https://linuxmint.com/)
-  [![Bash](https://img.shields.io/badge/Bash-Script-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)](https://www.gnu.org/software/bash/)
-  [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+
+[![Linux Mint](https://img.shields.io/badge/Linux%20Mint-Cinnamon-87CF3E?style=for-the-badge&logo=linuxmint&logoColor=white)](https://linuxmint.com/)
+[![Bash](https://img.shields.io/badge/Bash-Script-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)](https://www.gnu.org/software/bash/)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+
 </p>
 
 ---
