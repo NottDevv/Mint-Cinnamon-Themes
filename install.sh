@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 
-# ۱. بررسی هوشمند: آیا اسکریپت به‌صورت آنلاین (curl | bash) اجرا شده است؟
+# ۱. بررسی هوشمند اجرای آنلاین (curl | bash)
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" 2>/dev/null && pwd || echo "")"
 
 if [[ -z "$SCRIPT_DIR" || ! -f "$SCRIPT_DIR/scripts/common.sh" ]]; then
     echo -e " \033[1;34m●\033[0m Downloading installer files from GitHub..."
     TMP_DIR="$(mktemp -d)"
-    
-    # دانلود پروژه در پوشه موقت
-    if git clone --depth=1 https://github.com/NottDevv/Mint-Cinnamon-Themes.git "$TMP_DIR" >/dev/null 2>&1; then
-        # اجرای مجدد اسکریپت از داخل پوشه دانلود شده
+
+    # دانلود آرشیو پروژه بدون نیاز به داشتن git
+    if curl -fsSL https://github.com/NottDevv/Mint-Cinnamon-Themes/archive/refs/heads/main.tar.gz | tar -xz -C "$TMP_DIR" --strip-components=1 2>/dev/null; then
         exec bash "$TMP_DIR/install.sh" "$@"
     else
         echo "Error: Failed to download repository from GitHub."
+        rm -rf "$TMP_DIR"
         exit 1
     fi
 fi
