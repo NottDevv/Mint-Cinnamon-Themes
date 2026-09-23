@@ -1,5 +1,22 @@
 #!/usr/bin/env bash
 
+# ۱. بررسی هوشمند: آیا اسکریپت به‌صورت آنلاین (curl | bash) اجرا شده است؟
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" 2>/dev/null && pwd || echo "")"
+
+if [[ -z "$SCRIPT_DIR" || ! -f "$SCRIPT_DIR/scripts/common.sh" ]]; then
+    echo -e " \033[1;34m●\033[0m Downloading installer files from GitHub..."
+    TMP_DIR="$(mktemp -d)"
+    
+    # دانلود پروژه در پوشه موقت
+    if git clone --depth=1 https://github.com/NottDevv/Mint-Cinnamon-Themes.git "$TMP_DIR" >/dev/null 2>&1; then
+        # اجرای مجدد اسکریپت از داخل پوشه دانلود شده
+        exec bash "$TMP_DIR/install.sh" "$@"
+    else
+        echo "Error: Failed to download repository from GitHub."
+        exit 1
+    fi
+fi
+
 set -Eeuo pipefail
 
 VERSION="1.1.0"
