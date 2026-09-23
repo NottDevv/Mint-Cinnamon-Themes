@@ -9,6 +9,7 @@ RED='\033[38;5;203m'
 GREEN='\033[38;5;114m'
 YELLOW='\033[38;5;221m'
 BLUE='\033[38;5;75m'
+MAGENTA='\033[38;5;171m'
 CYAN='\033[38;5;87m'
 GRAY='\033[38;5;245m'
 WHITE='\033[38;5;255m'
@@ -29,7 +30,6 @@ error_msg() {
     echo -e "  ${RED}✖${RESET} $1"
 }
 
-# سیستم هوشمند بررسی و نصب پیش‌نیازها
 install_dependencies() {
     info "Checking required dependencies..."
     
@@ -83,12 +83,11 @@ run_installer() {
     )
 }
 
-# بررسی نصب بودن یک تم خاص
 is_theme_installed() {
     local pattern="$1"
     if ls "$HOME/.themes/"$pattern 1> /dev/null 2>&1 || ls "$HOME/.local/share/themes/"$pattern 1> /dev/null 2>&1; then
-        return 0 # نصب است
+        return 0
     else
-        return 1 # نصب نیست
+        return 1
     fi
 }
