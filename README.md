@@ -224,31 +224,31 @@ If this project is useful to you, consider giving it a ⭐ on GitHub.
       <img src="images/1.png" alt="MAIN">
     </td>
     <td width="50%">
-      <img src="images/2.png" alt="Google Drive">
+      <img src="images/2.png" alt="Install Themes">
     </td>
   </tr>
   <tr>
     <td width="50%">
-      <img src="images/3.png" alt="Remote Upload">
+      <img src="images/3.png" alt="Win 11 Theme">
     </td>
     <td width="50%">
-      <img src="images/4.png" alt="Youtube">
+      <img src="images/4.png" alt="Win 11 Theme 2">
     </td>
   </tr>
     <tr>
     <td width="50%">
-      <img src="images/5.png" alt="Download Youtube">
+      <img src="images/5.png" alt="Theme Status">
     </td>
     <td width="50%">
-      <img src="images/6.png" alt="Github Remote">
+      <img src="images/6.png" alt="Uninstall">
     </td>
   </tr>
    <tr>
     <td width="50%">
-      <img src="images/7.png" alt="Cloud Settings">
+      <img src="images/7.png" alt="Backup & Restore">
     </td>
     <td width="50%">
-      <img src="images/8.png" alt="Host Settings">
+      <img src="images/8.png" alt="Update">
     </td>
   </tr>
 </table>
