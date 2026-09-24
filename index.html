@@ -193,12 +193,37 @@
             border-radius: 8px;
             padding: 18px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .feature-box i {
             font-size: 2.2rem;
             color: var(--accent);
             margin-bottom: 12px;
+        }
+
+        /* Preview Image Styling */
+        .theme-preview {
+            margin-top: 15px;
+            display: block;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .theme-preview:hover {
+            transform: scale(1.02);
+            border-color: #38bdf8;
+        }
+
+        .theme-preview img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
         }
 
         .feature-list {
@@ -301,19 +326,36 @@ chmod +x install.sh
         <h2><i class="fa-solid fa-palette"></i> Supported Themes</h2>
         <div class="grid">
             <div class="feature-box">
-                <i class="fa-brands fa-windows"></i>
-                <h3>Windows 11</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">Fluent GTK themes (Light/Dark) with complete Windows icon packs.</p>
+                <div>
+                    <i class="fa-brands fa-windows"></i>
+                    <h3>Windows 11</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">Fluent GTK themes (Light/Dark) with complete Windows icon packs.</p>
+                </div>
+                <a href="https://raw.githubusercontent.com/yeyushengfan258/Win11-gtk-theme/refs/heads/main/preview-03.jpg" target="_blank" class="theme-preview" title="Click to view full image">
+                    <img src="https://raw.githubusercontent.com/yeyushengfan258/Win11-gtk-theme/refs/heads/main/preview-03.jpg" alt="Windows 11 Theme Preview">
+                </a>
             </div>
+
             <div class="feature-box">
-                <i class="fa-brands fa-apple"></i>
-                <h3>macOS (WhiteSur)</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">Authentic Apple macOS UI layout and WhiteSur icon set.</p>
+                <div>
+                    <i class="fa-brands fa-apple"></i>
+                    <h3>macOS (WhiteSur)</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">Authentic Apple macOS UI layout and WhiteSur icon set.</p>
+                </div>
+                <a href="https://raw.githubusercontent.com/vinceliuice/WhiteSur-gtk-theme/refs/heads/pictures/pictures/macbook.png" target="_blank" class="theme-preview" title="Click to view full image">
+                    <img src="https://raw.githubusercontent.com/vinceliuice/WhiteSur-gtk-theme/refs/heads/pictures/pictures/macbook.png" alt="macOS Theme Preview">
+                </a>
             </div>
+
             <div class="feature-box">
-                <i class="fa-brands fa-chrome"></i>
-                <h3>ChromeOS</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">Clean Material Design desktop themes and Ozone icon pack.</p>
+                <div>
+                    <i class="fa-brands fa-chrome"></i>
+                    <h3>ChromeOS</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">Clean Material Design desktop themes and Ozone icon pack.</p>
+                </div>
+                <a href="https://raw.githubusercontent.com/sakuhanaX3/Ozone-icons/main/screenshots/screenshot-kde.png" target="_blank" class="theme-preview" title="Click to view full image">
+                    <img src="https://raw.githubusercontent.com/sakuhanaX3/Ozone-icons/main/screenshots/screenshot-kde.png" alt="ChromeOS Theme Preview">
+                </a>
             </div>
         </div>
     </div>
