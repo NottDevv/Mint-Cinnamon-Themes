@@ -11,38 +11,60 @@ MACOS_ICONS="https://github.com/vinceliuice/WhiteSur-icon-theme.git"
 
 mkdir -p "$BASE"
 
-clear
-echo
-echo -e "${CYAN}${BOLD}╔══════════════════════════════════════════════════════╗${RESET}"
-echo -e "${CYAN}${BOLD}║                  macOS THEME                         ║${RESET}"
-echo -e "${CYAN}${BOLD}╚══════════════════════════════════════════════════════╝${RESET}\n"
-echo -e "${GRAY}WhiteSur GTK and WhiteSur icon theme.${RESET}\n"
-
-# ۱. تفکیک بخش‌های مورد نیاز
-echo -e "  ${WHITE}${BOLD}What would you like to install?${RESET}"
-echo -e "  [${CYAN}1${RESET}] Both Theme & Icons"
-echo -e "  [${CYAN}2${RESET}] Theme Only (GTK)"
-echo -e "  [${CYAN}3${RESET}] Icons Only\n"
-read -rp "  Selection [1]: " COMPONENT_CHOICE
-COMPONENT_CHOICE="${COMPONENT_CHOICE:-1}"
-
-# ۲. حالت تاریک/روشن (فقط در صورت نصب تم GTK)
-COLOR_FLAGS=("-c" "Light" "-c" "Dark")
-if [[ "$COMPONENT_CHOICE" == "1" || "$COMPONENT_CHOICE" == "2" ]]; then
+show_header() {
+    clear
     echo
-    echo -e "  ${WHITE}${BOLD}Select Theme Variant:${RESET}"
-    echo -e "  [${CYAN}1${RESET}] Light Only"
-    echo -e "  [${CYAN}2${RESET}] Dark Only"
-    echo -e "  [${CYAN}3${RESET}] Both (Light & Dark)\n"
-    read -rp "  Selection [3]: " color_choice
+    echo -e "${CYAN}${BOLD}╔══════════════════════════════════════════════════════╗${RESET}"
+    echo -e "${CYAN}${BOLD}║                  macOS THEME                         ║${RESET}"
+    echo -e "${CYAN}${BOLD}╚══════════════════════════════════════════════════════╝${RESET}\n"
+    echo -e "${GRAY}WhiteSur GTK and WhiteSur icon theme.${RESET}\n"
+}
 
-    case "$color_choice" in
-        1) COLOR_FLAGS=("-c" "Light") ;;
-        2) COLOR_FLAGS=("-c" "Dark") ;;
-        3|"") COLOR_FLAGS=("-c" "Light" "-c" "Dark") ;;
-        *) warning "Invalid choice, defaulting to Both."; sleep 1 ;;
+STEP=1
+COLOR_FLAGS=("-c" "Light" "-c" "Dark")
+COMPONENT_CHOICE="1"
+
+while true; do
+    case "$STEP" in
+        1)
+            show_header
+            echo -e "  ${WHITE}${BOLD}What would you like to install?${RESET}"
+            echo -e "  [${CYAN}1${RESET}] Both Theme & Icons"
+            echo -e "  [${CYAN}2${RESET}] Theme Only (GTK)"
+            echo -e "  [${CYAN}3${RESET}] Icons Only"
+            echo -e "  [${CYAN}0${RESET}] ← Back\n"
+            read -rp "  Selection [1]: " COMPONENT_CHOICE
+            COMPONENT_CHOICE="${COMPONENT_CHOICE:-1}"
+
+            case "$COMPONENT_CHOICE" in
+                0) exit 0 ;;
+                1|2) STEP=2 ;;
+                3) STEP=3 ;;
+                *) warning "Invalid choice."; sleep 1 ;;
+            esac
+            ;;
+        2)
+            show_header
+            echo -e "  ${WHITE}${BOLD}Select Theme Variant:${RESET}"
+            echo -e "  [${CYAN}1${RESET}] Light Only"
+            echo -e "  [${CYAN}2${RESET}] Dark Only"
+            echo -e "  [${CYAN}3${RESET}] Both (Light & Dark)"
+            echo -e "  [${CYAN}0${RESET}] ← Back\n"
+            read -rp "  Selection [3]: " color_choice
+
+            case "$color_choice" in
+                0) STEP=1 ;;
+                1) COLOR_FLAGS=("-c" "Light"); STEP=3 ;;
+                2) COLOR_FLAGS=("-c" "Dark"); STEP=3 ;;
+                3|"") COLOR_FLAGS=("-c" "Light" "-c" "Dark"); STEP=3 ;;
+                *) warning "Invalid choice."; sleep 1 ;;
+            esac
+            ;;
+        3)
+            break
+            ;;
     esac
-fi
+done
 
 echo
 install_dependencies
@@ -70,11 +92,6 @@ case "$COMPONENT_CHOICE" in
         
         info "Installing macOS icons..."
         run_installer "$BASE/WhiteSur-icon-theme" -a && success "Icon Theme installed."
-        ;;
-    *)
-        error_msg "Invalid choice."
-        pause_screen
-        exit 1
         ;;
 esac
 
