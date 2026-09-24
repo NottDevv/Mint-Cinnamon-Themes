@@ -213,6 +213,47 @@ If this project is useful to you, consider giving it a ⭐ on GitHub.
 **Repository:** [https://github.com/NottDevv/Mint-Cinnamon-Themes](https://github.com/NottDevv/Mint-Cinnamon-Themes)
 
 ---
+
+---
+
+## 📸 Screenshots
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="images/1.png" alt="MAIN">
+    </td>
+    <td width="50%">
+      <img src="images/2.png" alt="Google Drive">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="images/3.png" alt="Remote Upload">
+    </td>
+    <td width="50%">
+      <img src="images/4.png" alt="Youtube">
+    </td>
+  </tr>
+    <tr>
+    <td width="50%">
+      <img src="images/5.png" alt="Download Youtube">
+    </td>
+    <td width="50%">
+      <img src="images/6.png" alt="Github Remote">
+    </td>
+  </tr>
+   <tr>
+    <td width="50%">
+      <img src="images/7.png" alt="Cloud Settings">
+    </td>
+    <td width="50%">
+      <img src="images/8.png" alt="Host Settings">
+    </td>
+  </tr>
+</table>
+
+
 ---
 
 <div dir="rtl" align="right">
